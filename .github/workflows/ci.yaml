@@ -77,12 +77,3 @@ jobs:
             ghcr.io/${{ env.REPO_LOWERCASE }}:${{ github.sha }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
-
-  deploy:
-    needs: build-and-push
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main' # 只在main分支上运行
-    steps:
-      - name: Deploy to production
-        run: echo "Deployment would happen here. Configure your deployment strategy based on your hosting provider."
-        # 这里可以添加实际部署逻辑，如使用SSH部署到服务器或部署到云服务提供商
