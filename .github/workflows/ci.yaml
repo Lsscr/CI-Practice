@@ -48,6 +48,9 @@ jobs:
   build-and-push:
     needs: test
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     if: github.ref == 'refs/heads/main' # 只在main分支上运行
     steps:
       - uses: actions/checkout@v4
